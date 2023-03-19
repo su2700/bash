@@ -1,23 +1,21 @@
 #!/bin/bash https://github.com/su2700/bash.git
-if [ "$#" lt 2 ] ; then
-    echo "Usage: `chop me <sting> <index>"
-    exit 1
+if [ "$#" -lt 2 ]; then
+  echo "Usage: chop <string> <index>" >&2
+  exit 1
 fi
-
-if [ "$1" == "-h" ] ; then
-    echo "Usage: `basename $0` [-h]"
-    exit 0
-fi
-
-# ${stringA:n:m}  means chop from stringA 
 # start from index n and chop m charact
-# assign arg to var
-stringA="$1"
+string="$1"
 index="$2"
-# do the chop
-chopped="${stringA:0:index}"
+
+
+# Check if the string is empty or if the index is out of range
+if [ -z "$string" ] || [ "$index" -lt 0 ] || [ "$index" -ge "${#string}" ]; then
+  echo "Error: you must be input as chop.sh  <string> <index>." >&2
+  exit 1
+fi
+
+# Perform the chop
+chopped="${string:0:index}"
 # echo result
 echo "$chopped"
-
-
 
