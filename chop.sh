@@ -15,7 +15,7 @@ index="$2"
 
 
 # Check if the string is empty or if the index is out of range
-if [ -z "$string" ] || [ "$index" -lt 0 ] || [ "$index" -ge "${#string}" ]; then
+if [[ -z "$string" ]] || [[ "$index" -lt 0 ]] || [[ "$index" -ge "${#string}" ]]; then
   echo "Error: you must be input appropriate string and index " >&2
   exit 1
 fi
@@ -26,3 +26,8 @@ chopped="${string:0:index}"
 echo "$chopped"
 
 # test git stash no2
+
+#crete fun
+# fix line 18, merge back to main branch
+# create new fix branch from main , update feature branch from main branch with rebase command
+# 
