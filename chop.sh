@@ -1,4 +1,16 @@
 #!/bin/bash 
+
+
+#set input and the output of function
+_funcChop()
+{
+    string="$1"
+    index="$2"
+    chopped="${string:0:index}"
+    echo "${chopped}"
+}
+
+
 if [[ "$1" = "-h" ]] || [[ "$#" -eq 0 ]] || [[ "$1" = "--help" ]]; then
   echo "Usage: chop_me <string> <index>"
   echo "this Chops script the given string at the specified index, then prints the result."
@@ -20,21 +32,7 @@ if [[ -z "$string" ]] || [[ "$index" -lt 0 ]] || [[ "$index" -ge "${#string}" ]]
   exit 1
 fi
 
-# Perform the chop
-chopped="${string:0:index}"
-# echo result
-echo "$chopped"
-
-#set input and the output of function
-funcChop()
-{
-    string="$1"
-    index="$2"
-    chopped="${string:0:index}"
-    echo "$chopped"
-}
-
 #call function
-chopResult=$(funcChop helloWorld 3)
+chopResult=$(_funcChop helloWorld 3)
 
-echo "chopResult"
+echo "${chopResult}"
