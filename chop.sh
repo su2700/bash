@@ -2,7 +2,7 @@
 if [[ "$1" = "-h" ]] || [[ "$#" -eq 0 ]] || [[ "$1" = "--help" ]]; then
   echo "Usage: chop_me <string> <index>"
   echo "this Chops script the given string at the specified index, then prints the result."
-  exit 0
+  exit 1
 fi
 
 if [[ "$#" -lt 2 ]]; then
@@ -34,3 +34,7 @@ funcChop()
     echo "$chopped"
 }
 
+#call function
+chopResult=$(funcChop helloWorld 3)
+
+echo "chopResult"
