@@ -33,6 +33,6 @@ if [[ -z "$string" ]] || [[ "$index" -lt 0 ]] || [[ "$index" -ge "${#string}" ]]
 fi
 
 #call function
-chopResult=$(_funcChop helloWorld 3)
+chopResult=$(_funcChop "$1" "$2")
 
 echo "${chopResult}"
