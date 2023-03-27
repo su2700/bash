@@ -25,9 +25,12 @@ chopped="${string:0:index}"
 # echo result
 echo "$chopped"
 
-# test git stash no2
+#set input and the output of function
+funcChop()
+{
+    string="$1"
+    index="$2"
+    chopped="${string:0:index}"
+    echo "$chopped"
+}
 
-#crete fun
-# fix line 18, merge back to main branch
-# create new fix branch from main , update feature branch from main branch with rebase command
-# 
