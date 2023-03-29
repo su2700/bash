@@ -20,13 +20,17 @@ if [[ "${expected_output}" != "${actual_output}" ]]; then
 fi
 }
 
+# 1st case test, 
 _test_case "numbers" 2 "nu" 
 
+# 2nd case test, inputs string and negative index values, expect get error back
 _test_case "numbers" -2 "nu" 
 
-_test_case "numbers" 30 
+# 3rd case test, inputs string and no index values, expect get error back
+_test_case "numbers" 
 
-_test_case "numbers" 2 
+#4th case test, inputs string and  index values bigger than length of string, expect get error back
+_test_case "numbers" 30
 
 
 
