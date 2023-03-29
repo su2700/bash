@@ -11,6 +11,7 @@ function _test_case()
   expected_output=$3
 
 # call UUT
+# need check for the script chop.sh exist in the right path and executable, how? 
 actual_output=$(./chop.sh "${parameter1}"  "${parameter2}")
 
 if [[ "${expected_output}" != "${actual_output}" ]]; then
@@ -19,6 +20,13 @@ if [[ "${expected_output}" != "${actual_output}" ]]; then
   echo "test passed"
 fi
 }
+
+# how many cases we many have to test total,  
+# 1, have string, no index
+# 2, no string, no index
+# 3, have string, have index， but not natural number
+# 3, have string, have index, but index bigger than size of string
+
 
 # 1st case test, 
 _test_case "numbers" 2 "nu" 
