@@ -21,21 +21,19 @@ function _test_case()
     fi
 }
 
-# how many cases we many have to test total,  
-# 1, have string, no index
-# 2, no string, no index
-# 3, have string, have index， but not natural number
-# 3, have string, have index, but index bigger than size of string
-
-
 # 1st case test, 
+echo "general test"
 _test_case "numbers" 2 "nu" 0
+echo " "
 
 # 2nd case test, inputs string and negative index values, expect returen "" , exp output 1
+echo "Missuse test"
 _test_case "numbers" -2 "Error: you must be input appropriate string and index " 2
 _test_case "numbers" 30 "Error: you must be input appropriate string and index " 2
+echo " "
 
 # 3rd case test, inputs string and no index values, expect get error back
+echo "Help Facility Test"
 _test_case "numbers" "" "Usage: chop <string> <index>" 1 
 _test_case "numbers" "-h" "Usage: chop <string> <index>" 1 
 _test_case "numbers" "--help" "Usage: chop <string> <index>" 1 
