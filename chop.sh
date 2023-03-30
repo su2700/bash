@@ -12,7 +12,7 @@ _funcChop()
 
 
 if  [[ "$1" = "-h" ]] || [[ "$#" -eq 0 ]] || [[ "$1" = "--help" ]]; then
-  echo "this Chops script the given string at the specified index, then prints the result. Usage: chop_me <string> <index>"
+  echo "Usage: chop_me <string> <index>"
   exit 1
 fi
 
