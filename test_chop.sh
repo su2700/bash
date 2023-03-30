@@ -3,6 +3,7 @@
 # this test script will test 5 kinds of cases of user input for the script chop.sh
 # if 1, zero string, 2, negative index, 3, no index, 4, no arguments, 5, index > length
 
+set -e
 function _test_case()
 {
     p1=$1
@@ -16,6 +17,7 @@ function _test_case()
 
     if [[ "${expected_ret}" != "${actual_ret}" ]]; then
         echo "test failed"
+        
     else
         echo "test passed"
     fi
