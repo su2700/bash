@@ -15,9 +15,9 @@ function _test_case()
     actual_ret=$(./chop.sh "${p1}"  "${p2}")
 
     if [[ "${expected_ret}" != "${actual_ret}" ]]; then
-    echo "test failed"
+        echo "test failed"
     else
-    echo "test passed"
+        echo "test passed"
     fi
 }
 
