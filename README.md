@@ -11,7 +11,7 @@
 ### shunit2 functions, setUp(){}, testEquality(){}, tearDown(){}, oneTimeTearDown(){}
 
 <!-- text -->
-## test
+## text
 ### strikethrough
 ~~test content with strikethrought~~
 ### blod
