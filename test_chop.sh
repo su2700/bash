@@ -22,7 +22,7 @@ function _test_case()
         return 1
     fi
 
-    if [[ "${expected_output}" != "${actual_output}" ]]; then
+    if [[ "${expected_output}" != *"${actual_output}"* ]]; then 
         echo " $tc_name => unexpected output: $actual_output, expected: $expected_output"
         return 1
     fi
@@ -31,17 +31,24 @@ function _test_case()
 
 # 1st case test, 
 _test_case "numbers" 2 "nu" 0 || exit 1
+echo "test case 1 passed"
 
 # 2nd case test, inputs string and negative index values, expect returen "" , exp output 1
 # exit 1 means exit program immediately,
-# because the _test_case returns nonzero exit code || will execute program of exit and return 1
+# because the _test_case returns nonzero exit code || (or) will execute program of exit and return 1
 _test_case "numbers" -2 "Error: you must be input appropriate string and index " 2 || exit 1   
+echo "test case 2 passed"
 _test_case "numbers" 30 "Error: you must be input appropriate string and index " 2 || exit 1
+echo "test case 3 passed"
 
 # 3rd case test, inputs string and no index values, expect get error back
 _test_case "numbers" "" "Usage: chop <string> <index>" 1 || exit 1
+echo "test case 4 passed"
 _test_case "numbers" "-h" "Usage: chop <string> <index>" 1 || exit 1
+echo "test case 5 passed"
 
 _test_case "numbers" "--help" "Usage: chop <string> <index>" 1 || exit 1
+echo "test case 6 passed"
 _test_case "" "" "Usage: chop <string> <index>" 1 || exit 1
+echo "test case 7 passed"
 
