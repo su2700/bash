@@ -3,7 +3,7 @@
 # this test script will test 5 kinds of cases of user input for the script chop.sh
 # if 1, zero string, 2, negative index, 3, no index, 4, no arguments, 5, index > length
 
-set -e
+# set -e
 function _test_case()
 {
     p1=$1               # string
@@ -11,7 +11,7 @@ function _test_case()
     expected_output=$3     # expected return value/exit code
     expected_rc=$4  # expected string from STDOUT/ERR
 
-    tc_name="\"$p1\", $p2"
+    tc_name="\"$p1\", $p2" #backslash escape， test case name
 
     # call UUT
     # need check for the script chop.sh exist in the right path and executable, how? 
@@ -33,7 +33,9 @@ function _test_case()
 _test_case "numbers" 2 "nu" 0 || exit 1
 
 # 2nd case test, inputs string and negative index values, expect returen "" , exp output 1
-_test_case "numbers" -2 "Error: you must be input appropriate string and index " 2 || exit 1
+# exit 1 means exit program immediately,
+# because the _test_case returns nonzero exit code || will execute program of exit and return 1
+_test_case "numbers" -2 "Error: you must be input appropriate string and index " 2 || exit 1   
 _test_case "numbers" 30 "Error: you must be input appropriate string and index " 2 || exit 1
 
 # 3rd case test, inputs string and no index values, expect get error back
