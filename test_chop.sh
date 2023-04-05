@@ -15,67 +15,36 @@ function _test_case()
 
     # call UUT
     # need check for the script chop.sh exist in the right path and executable, how? 
-    actual_output=$(./chop.sh "${p1}"  "${p2}")
+    actual_output=$(./chop.sh "${p1}"  "${p2}" 2>&1)
     rc=$?
-    # test 1, test help falg
-    if [[ ${rc} -ne 1 ]]; then
-        echo "help flag test failed"
-    else
-        echo "help flag test passed"
-    fi  
-   
-   # test 2, test empty string 
-    if [[ ${rc} -ne 2 ]]; then
-        echo "empty string test failed"
-    else
-        echo "empty string test passed"
-    fi  
-    
-    # test3, test negative index
-    if [[ ${rc} -ne 2 ]]; then
-        echo "negative index test failed"
-    else
-        echo "negative index test passed"
-    fi  
-   
-    # test4, test index out of range
-    if [[ ${rc} -ne 2 ]]; then
-        echo "index out of range test failed"
-    else
-        echo "index out of range test passed"
-    fi  
-
+    echo "debug: o: $actual_output, rc: $rc" 
     # test5, test valid input
-    if [[ ${rc} -ne 0 ]]; then
-        echo "valid input test failed"
+    if [[ ${rc} -eq 0 ]]; then
+        echo "==> $tc_name succeeded"
+        if [[ $actual_output != "$expected_output"  ]]; then
+            echo "ERROR: unexpected output"
+            return 1
+        else
+            echo "output matches"
+        fi
     else
-        echo "valid input test passed"
-    fi  
+        if [[ $actual_output =~ $expected_output ]] && [ $rc -eq "$expected_rc" ]; then
+            echo "==> $tc_name succeeded"
+        else
+            echo "==> $tc_name failed"
+            return 1
+        fi
+    fi
 
     return 0
 }
 
-# 1st case test, 
-_test_case "numbers" 2 "nu" 0 || exit 1
-echo "test case 1 passed"
+_test_case "numbers" 3 "num" 0 || exit 1
+_test_case "numbers" -1 "Error" 2 || exit 1
+_test_case "numbers" 20 "Error" 2 || exit 1
+_test_case "" 0 "Error" 2 || exit 1
+_test_case "numbers" 6 "number" 0 || exit 1
 
-# 2nd case test, inputs string and negative index values, expect returen "" , exp output 1
-# exit 1 means exit program immediately,
-# because the _test_case returns nonzero exit code || (or) will execute program of exit and return 1
-_test_case "numbers" -2 "Error: you must be input appropriate string and index " 2 || exit 1   
-echo "test case 2 passed"
-_test_case "numbers" 30 "Error: you must be input appropriate string and index " 2 || exit 1
-echo "test case 3 passed"
-
-# 3rd case test, inputs string and no index values, expect get error back
-_test_case "numbers" "" "Usage: chop <string> <index>" 1 || exit 1
-echo "test case 4 passed"
-_test_case "numbers" "-h" "Usage: chop <string> <index>" 1 || exit 1
-echo "test case 5 passed"
-
-_test_case "numbers" "--help" "Usage: chop <string> <index>" 1 || exit 1
-echo "test case 6 passed"
-_test_case "" "" "Usage: chop <string> <index>" 1 || exit 1
-echo "test case 7 passed"
-
+echo "==> all test cases pass, gratulation"
+exit 0
 
