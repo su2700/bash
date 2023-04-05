@@ -13,12 +13,15 @@ function _test_case()
 
     tc_name="\"$p1\", $p2" #backslash escape， test case name
 
+    if ! [[ -x "./chop.sh" ]]; then
+        echo "Error: chop.sh not found or not executable in the current directory." >&2
+        exit 1
+    fi
     # call UUT
-    # need check for the script chop.sh exist in the right path and executable, how? 
     actual_output=$(./chop.sh "${p1}"  "${p2}" 2>&1)
     rc=$?
     echo "debug: o: $actual_output, rc: $rc" 
-    # test5, test valid input
+    
     if [[ ${rc} -eq 0 ]]; then
         echo "==> $tc_name succeeded"
         if [[ $actual_output != "$expected_output"  ]]; then
