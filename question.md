@@ -23,20 +23,23 @@ The C locale, also known as the POSIX locale,??
 noexpand_translation: 
 In Bash, the "noexpand_translation" option can be set using the "set" command with the "-f" or "-o" flag. When this option is enabled, Bash disables the expansion of backslash escape sequences in the strings passed to the shell.
 
-shopt:(shell option) shopt is a builtin command of the Bash shell that enables or disables options for the current shell session.
+shopt:
+(shell option) shopt is a builtin command of the Bash shell that enables or disables options for the current shell session.
 
 
---dump-po-strings:  The "--dump-po-strings" (Portable Object=PO) option is used with the "xgettext" command in Bash to extract translatable strings from a Bash script or program and generate a Portable Object (PO) template file. The PO template file can then be translated to different languages using tools like "msgfmt" and "msgmerge".
+--dump-po-strings:  
+The "--dump-po-strings" (Portable Object=PO) option is used with the "xgettext" command in Bash to extract translatable strings from a Bash script or program and generate a Portable Object (PO) template file. The PO template file can then be translated to different languages using tools like "msgfmt" and "msgmerge".
 
-MO files (Machine Object files): are binary files used for localization in software development. They contain translations of messages in a specific language, and are often used in conjunction with PO (Portable Object) files, which contain the original messages.
+MO files (Machine Object files): 
+MO are binary files used for localization in software development. They contain translations of messages in a specific language, and are often used in conjunction with PO (Portable Object) files, which contain the original messages.
 
-msgfmt:Name
+msgfmt:
 msgfmt -- create a message object from a message file
 Synopsis
 msgfmt [options...] filename...
 Description
 msgfmt is a command-line tool used to convert a message catalog file in the gettext PO (Portable Object) format into a binary message catalog (MO) file that can be used by applications to translate user interface strings into different languages.
 
-LANG shell variable
+LANG shell variable:
 The LANG shell variable is an environment variable used in Unix-like operating systems to define the default system language. It specifies the language and localization settings that should be used by various software programs and utilities when displaying messages, text, and other user interface elements.
 The LANG variable is usually set in the user's shell initialization files, such as ~/.bashrc or ~/.bash_profile, and is inherited by all child processes started from the shell, including terminal sessions and graphical applications.
