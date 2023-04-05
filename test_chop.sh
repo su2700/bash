@@ -13,7 +13,8 @@ function _test_case()
 
     tc_name="\"$p1\", $p2" #backslash escape， test case name
 
-    if ! [[ -x "./chop.sh" ]]; then
+    if ! [[ -x "./chop.sh" ]]
+    then
         echo "Error: chop.sh not found or not executable in the current directory." >&2
         exit 1
     fi
@@ -22,7 +23,8 @@ function _test_case()
     rc=$?
     echo "debug: o: $actual_output, rc: $rc" 
     
-    if [[ ${rc} -eq 0 ]]; then
+    if [[ ${rc} -eq 0 ]] 
+    then
         echo "==> $tc_name succeeded"
         if [[ $actual_output != "$expected_output"  ]]; then
             echo "ERROR: unexpected output"

@@ -1,6 +1,8 @@
-# 1
-***Prefixing a double-quoted string with a dollar sign (‘$’), such as $"hello, world", will
-cause the string to be translated according to the current locale. The gettext infrastruc-
+# questions
+
+## question 1
+
+***Prefixing a double-quoted string with a dollar sign (‘$’), such as $"hello, world", will cause the string to be translated according to the current locale. The gettext infrastruc-
 ture performs the lookup and translation, using the LC_MESSAGES, TEXTDOMAINDIR, and
 TEXTDOMAIN shell variables, as explained below. See the gettext documentation for additional details not covered here. If the current locale is C or POSIX, if there are no translations available, of if the string is not translated, the dollar sign is ignored. Since this is a form of double quoting, the string remains double-quoted by default, whether or not it is translated and replaced. If the noexpand_translation option is enabled using the shopt builtin (see Section 4.3.2 [The Shopt Builtin], page 71), translated strings are single-quoted instead of double-quoted. The rest of this section is a brief overview of how you use gettext to create transla-tions for strings in a shell script named scriptname. There are more details in the gettext documentation.***
 
@@ -19,18 +21,20 @@ POSIX:
 portable operating system interface, is a set of standard operating system interfaces based on the Unix operating system.
 
 The C locale, also known as the POSIX locale,??
+Yes, the C locale is the same as the POSIX locale.
 
-noexpand_translation: 
+## question no 2
+
+noexpand_translation:
 In Bash, the "noexpand_translation" option can be set using the "set" command with the "-f" or "-o" flag. When this option is enabled, Bash disables the expansion of backslash escape sequences in the strings passed to the shell.
 
 shopt:
 (shell option) shopt is a builtin command of the Bash shell that enables or disables options for the current shell session.
 
-
 --dump-po-strings:  
 The "--dump-po-strings" (Portable Object=PO) option is used with the "xgettext" command in Bash to extract translatable strings from a Bash script or program and generate a Portable Object (PO) template file. The PO template file can then be translated to different languages using tools like "msgfmt" and "msgmerge".
 
-MO files (Machine Object files): 
+MO files (Machine Object files):
 MO are binary files used for localization in software development. They contain translations of messages in a specific language, and are often used in conjunction with PO (Portable Object) files, which contain the original messages.
 
 msgfmt:
@@ -43,3 +47,10 @@ msgfmt is a command-line tool used to convert a message catalog file in the gett
 LANG shell variable:
 The LANG shell variable is an environment variable used in Unix-like operating systems to define the default system language. It specifies the language and localization settings that should be used by various software programs and utilities when displaying messages, text, and other user interface elements.
 The LANG variable is usually set in the user's shell initialization files, such as ~/.bashrc or ~/.bash_profile, and is inherited by all child processes started from the shell, including terminal sessions and graphical applications.
+
+[README.md](README.md)
+
+
+references
+
+- <https://www.gnu.org/software/bash/manual/bash.html#Locale-Translation>
