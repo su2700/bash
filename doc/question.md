@@ -54,3 +54,5 @@ The LANG variable is usually set in the user's shell initialization files, such 
 references
 
 - <https://www.gnu.org/software/bash/manual/bash.html#Locale-Translation>
+
+[link to the answer of question](/bash/doc/answer.md)
