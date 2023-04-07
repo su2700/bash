@@ -25,21 +25,13 @@
 
 ### *italics*
 
-
-# Learnings
-
-- chop.sh is called UUT (unit under test)
-- test function is used to simplify developers work
-- test function usually calls the UUT in a function that
-  checks both RC and output against expected output
-
-
-# Learnings
+## Learnings
 
 - chop.sh is called UUT (unit under test)
 - test function is used to simplify developers work
 - test function usually calls the UUT in a function that
   checks both RC and output against expected output
+
 
 ## URL link pointing to github profile
 
