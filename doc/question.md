@@ -55,4 +55,4 @@ references
 
 - <https://www.gnu.org/software/bash/manual/bash.html#Locale-Translation>
 
-[link to the answer of question](./answer.md)
+[link to the answer of question](./answer.md#L3)
