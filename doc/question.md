@@ -55,4 +55,4 @@ references
 
 - <https://www.gnu.org/software/bash/manual/bash.html#Locale-Translation>
 
-[link to the answer of question](./answer.md#L3)
+[link to the answer of question](./answer.md#L3) <!-- syntax: [Link text](file-path#Lline-number) -->
