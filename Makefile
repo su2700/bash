@@ -4,33 +4,24 @@
 # executed to build or rebuild the targets.
 # target: dependency
 #   tab command 
-a: 
-	@echo "hello world"
-test:
-	@./test_chop.sh
+all: hello
+
+%.o: %.c
+	gcc -c $<
+
+hello: hello.o	
+	gcc -o $@ $?
+
+
+clean:
+	rm -rf *.o
+	rm -rf hello
+
+
 
 # In a Makefile, .PHONY is a special target that is used to indicate that the associated
 #  target is not a file that needs to be built. Instead, it is considered a "phony" 
 #  target that is always out-of-date and needs to be rebuilt every time it is invoked.
 
-
-
-.PHONY: test
-.PHONY: a
-
-
-hello:hello.o	
-	gcc hello.o -o hello
-
-
-hello.o:hello.S
-	gcc hello.S -o hello.o
-
-
-hello.S:hello.i
-	gcc -S hello.i -o hello.S 
-hello.i:hello.c
-	gcc -E hello.c -o hello.i
-
-
-
+# .PHONY: test
+# .PHONY: a

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define STR "makefile test"
+#define STR "makefile test\n"
 #define PRI printf
 int main()
 {
