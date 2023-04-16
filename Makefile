@@ -17,8 +17,16 @@ clean:
 	rm -rf *.o
 	rm -rf hello
 
-blah: blah.c # will recompile if the prerequisites modified.
-	gcc blah.c -o blah
+blah: blah.o
+	gcc blah.o -o blah
+blah.o: blah.c # will recompile if the prerequisites modified.
+	gcc blah.c -o blah.o
+
+
+# It's a target that is not first (the default), and not a prerequisite. 
+# That means it'll never run unless you explicitly call make clean
+clean:
+	rm -rf *.o # delete all the .o files
 
 # In a Makefile, .PHONY is a special target that is used to indicate that the associated
 #  target is not a file that needs to be built. Instead, it is considered a "phony" 
