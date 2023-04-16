@@ -17,7 +17,8 @@ clean:
 	rm -rf *.o
 	rm -rf hello
 
-
+blah: blah.c # will recompile if the prerequisites modified.
+	gcc blah.c -o blah
 
 # In a Makefile, .PHONY is a special target that is used to indicate that the associated
 #  target is not a file that needs to be built. Instead, it is considered a "phony" 
