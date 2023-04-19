@@ -17,6 +17,25 @@ clean:
 	rm -rf *.o
 	rm -rf blah
 
+#variable 
+
+objects = program.o foo.o utils.o
+
+program : $(objects)
+	gcc -o program $(objects)
+
+$(objects) : defs.h
+
+foo = c
+prog.o : prog.$(foo)
+	$(foo)$(foo) -$(foo) prog.$(foo)
+
+prog.o : prog.c
+	gcc -c prog.c
+clean:
+	rm -rf program
+
+
 
 
 
