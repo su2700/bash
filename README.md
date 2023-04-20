@@ -37,3 +37,14 @@
 
 [Noah Github Profile](https://github.com/su2700)
 
+# It's a target that is not first (the default), and not a prerequisite. 
+# That means it'll never run unless you explicitly call make clean,
+# also can use .PHONY 
+
+
+# In a Makefile, .PHONY is a special target that is used to indicate that the associated
+#  target is not a file that needs to be built. Instead, it is considered a "phony" 
+#  target that is always out-of-date and needs to be rebuilt every time it is invoked.
+
+# .PHONY: test
+# .PHONY: a
