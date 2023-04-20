@@ -12,10 +12,14 @@ all: ${program}
 %.o: %.c
 	gcc -c $<
 
-${program}: ${program}.o	
-	gcc -o $@ $?
+${program}: ${program}.o | preprocess
+	gcc -o $@ $? | preprocess > $@
+
+preprocess:
+	sed 's/Makefile/Makenewfile/g'  blah.c > preprocessed.c
 
 
 clean:
 	rm -rf *.o
 	rm -rf ${program}
+	rm -rf preprocessed.c
