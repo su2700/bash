@@ -4,6 +4,12 @@
 # I feel basename is useless:)
 
 for localFileList in *; do
-    echo $(basename "$localFileList")
+    echo "$(basename "$localFileList")" 
+    echo " "
 done
 
+
+
+for localFileList in *; do
+    echo "$localFileList"
+done
