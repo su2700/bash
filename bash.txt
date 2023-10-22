@@ -1,0 +1,9 @@
+bash git:(dev) ✗ name=mage; (echo $name; name=wang; echo $name ) ; echo $name
+mage
+wang
+mage
+
+() will start a son process
+
+echo $BASHPID
+
